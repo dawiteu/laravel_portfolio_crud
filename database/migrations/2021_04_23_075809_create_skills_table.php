@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonalinfoTable extends Migration
+class CreateSkillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreatePersonalinfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('personalinfo', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->string('pers_info_key', 50);
-            $table->string('pers_info_val', 50);
+            $table->string('title'); 
+            $table->integer('html');
+            $table->integer('css');
+            $table->integer('js');
+            $table->integer('php');
+            $table->integer('cms'); 
+            $table->integer('photoshop'); 
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ class CreatePersonalinfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personalinfo');
+        Schema::dropIfExists('skills');
     }
 }
