@@ -9,6 +9,9 @@
                 <br/><p class="text-danger">BackOffice</p>
             @endif
     </h1>
+        @if (request()->is('admin/*') || request()->path() == 'admin') 
+            
+        @else
         <div class="social-links mt-3 text-center">
             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -16,17 +19,19 @@
             <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
-
+        @endif
     </div>
 
     <nav class="nav-menu">
     <ul>
         @if (request()->is('admin/*') || request()->path() == 'admin') 
+            <li><a href={{route('admin.home')}}><i class='bx bx-home'></i><span>Back Office Home</span></a></li>
             <li><a href={{route('ad.infop.show')}}><i class='bx bx-show'></i><span>Info Personelles</span></a></li>
             <li><a href={{route('ad.about.show')}}><i class='bx bx-edit-alt'></i><span>About</span></a></li>
             <li><a href={{route('ad.facts.show')}}><i class='bx bx-edit-alt'></i><span>Facts</span></a></li>
             <li><a href={{route('ad.projects.show')}}><i class='bx bx-edit-alt'></i><span>Portfolio</span></a></li>
             <li><a href={{route('ad.contact.show')}}><i class='bx bx-edit-alt'></i><span>Contact</span></a></li>
+            <li><a href={{route('ad.mailbox.show')}}><i class="bx bx-envelope"></i><span>Mailbkkkox</span></a></li>
         @else
             <li><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
             <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>

@@ -28,12 +28,13 @@ class UserController extends Controller
             "prenom"   => ["required"],
             "nom"   => ["required"],
             "email"   => ["required", "email"],
-            "tel"   => ["required"],
             "website"   => ["required"],
             "degree"   => ["required"],
             "city"   => ["required"],
             "freelance"   => ["required"],
         ]);
+
+
         foreach($request->all() as $key => $value) {
             if(($key != "_token") && ($key != "_method")){
                 $user->$key = $value; 

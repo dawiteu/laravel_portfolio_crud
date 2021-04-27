@@ -1,5 +1,5 @@
 @extends('layouts.index')
-
+@include('layouts.flash')
 
 @section('content')
 <div class="container mt-5">
@@ -7,6 +7,7 @@
     <form action={{route('ad.infop.update')}} method="POST">
         
     @csrf
+    @method('PUT')
 
         <div class="row">
             <div class="col-6">

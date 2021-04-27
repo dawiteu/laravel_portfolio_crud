@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             Skill::class,
             Project::class,
             Portfolio::class,
-            Contact::class
+            Contact::class,
+            Mailbox::class,
         ]);
     }
 }

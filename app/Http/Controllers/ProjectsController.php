@@ -29,7 +29,7 @@ class ProjectsController extends Controller
         return view('admin.portfolio.edit', compact('proj', 'user'));
     }
 
-    public function update(Projects $id, request $request){
+    public function update(Projects $id, Request $request){
         $proj = $id; 
         //$title = Portfolio::all()->first(); 
         request()->validate([
@@ -88,7 +88,7 @@ class ProjectsController extends Controller
         return view('admin.portfolio.title', compact('user', 'titre'));
     }
 
-    public function updateTitre(request $request){
+    public function updateTitre(Request $request){
         $user = User::all()->first(); 
         $titre = Portfolio::all()->first(); 
 

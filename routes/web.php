@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FactsController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\MailboxController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\UserController;
 use App\Models\Fact;
@@ -32,13 +33,13 @@ Route::get('/portfolio-detail', [FrontController::class,'portfoliodet']);
 Route::get('/admin', function(){ 
     $user = User::all()->first(); 
     return view('admin.index', compact('user'));
-});
+})->name('admin.home');
 
 
 // infos personnelles 
 Route::get('/admin/show/infopers', [UserController::class,'index'])->name('ad.infop.show'); 
 Route::get('/admin/edit/infopers', [UserController::class,'edit'])->name('ad.infop.edit'); 
-Route::post('/admin/edit2/infopers', [UserController::class,'update'])->name('ad.infop.update'); 
+Route::put('/admin/edit2/infopers', [UserController::class,'update'])->name('ad.infop.update'); 
 
 
 /// section About 
@@ -76,6 +77,14 @@ Route::get('/admin/show/contact', [ContactController::class,'index'])->name('ad.
 Route::get('/admin/edit/contact', [ContactController::class,'edit'])->name('ad.contact.edit');
 Route::put('/admin/update/contact', [ContactController::class,'update'])->name('ad.contact.update');
 
+
+// mailbox: 
+
+Route::get('/admin/mailbox', [MailboxController::class,'index'])->name('ad.mailbox.show'); 
+
+Route::get('/admin/mailbox/show/{id}', [MailboxController::class,'show'])->name('ad.mailbox.mailshow'); 
+
+Route::post('/sendmail', [MailboxController::class,'store'])->name('ad.mailbox.send'); 
 
 
 
