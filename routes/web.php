@@ -85,8 +85,8 @@ Route::delete('/admin/destroy/projects/{id}', [ProjectsController::class, 'destr
 //contact 
 
 Route::get('/admin/show/contact', [ContactController::class,'index'])->name('ad.contact.show'); 
-Route::get('/admin/edit/contact', [ContactController::class,'edit'])->name('ad.contact.edit');
-Route::put('/admin/update/contact', [ContactController::class,'update'])->name('ad.contact.update');
+Route::get('/admin/edit/contact/{id}', [ContactController::class,'edit'])->name('ad.contact.edit');
+Route::put('/admin/update/contact/{id}', [ContactController::class,'update'])->name('ad.contact.update');
 
 
 // mailbox: 
