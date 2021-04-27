@@ -18,7 +18,7 @@ class User extends Seeder
             "prenom" => "Alex",
             "nom"    => "Smith", 
             "email"       => "email@example.com",         
-            "date"       => "1-05-1995",          
+            "date"       => "01-05-1995",          
             "tel"       => "+123 456 7890",         
             "website"       => "www.dawit.eu",          
             "degree"       => "Master",

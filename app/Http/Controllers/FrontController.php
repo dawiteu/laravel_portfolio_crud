@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Contact;
 use App\Models\Fact;
 use App\Models\Portfolio;
 use App\Models\Projects;
@@ -26,6 +27,16 @@ class FrontController extends Controller
         //portfolio: 
         $portfolio = Portfolio::all()->first(); 
         $projects = Projects::all(); 
-        return view('index', compact('about', 'user','facts','skills', 'portfolio', 'projects')); 
+
+        //contact: 
+
+        $contact = Contact::all()->first(); 
+        return view('index', compact('about', 'user','facts','skills', 'portfolio', 'projects', 'contact')); 
+    }
+
+    public function portfoliodet(){
+        
+        $user  = User::all()->first(); 
+        return view('portfoliodetail', compact('user'));
     }
 }
