@@ -15,11 +15,10 @@ class CreateFactsTable extends Migration
     {
         Schema::create('facts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->integer('fact_1'); 
-            $table->integer('fact_2');
-            $table->integer('fact_3');
-            $table->integer('fact_4'); 
+            $table->string('icon');
+            $table->string('title'); 
+            $table->string('desc');
+            $table->integer('value');
             $table->timestamps();
         });
     }

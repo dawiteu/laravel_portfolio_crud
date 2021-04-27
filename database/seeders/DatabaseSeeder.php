@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             Portfolio::class,
             Contact::class,
             Mailbox::class,
+            Page::class,
+            Service::class,
         ]);
     }
 }

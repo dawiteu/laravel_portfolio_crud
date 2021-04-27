@@ -15,11 +15,27 @@ class Contact extends Seeder
     public function run()
     {
         DB::table('contact')->insert([
-            "title" => "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
-            "location" => "A108 Adam Street, New York, NY 535022",
-            "email" => "info@example.com",
-            "tel" => "+1 5589 55488 55s",
-            "created_at" => now()
+            [
+                "icon"   => "icofont-google-map",
+                "method" => "Location",
+                "value"  => "A108 Adam Street, New York, NY 535022",
+                "class"  => "adress",
+                "created_at" => now()
+            ],
+            [
+                "icon"   => "icofont-envelope",
+                "method" => "Email",
+                "value"  => "e@mail.com",
+                "class"  => "email",
+                "created_at" => now()
+            ],
+            [
+                "icon"   => "icofont-phone",
+                "method" => "Call",
+                "value"  => "+32 458 6547 85 21 654 20",
+                "class"  => "phone",
+                "created_at" => now()
+            ]
         ]);
     }
 }

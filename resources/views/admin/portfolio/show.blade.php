@@ -1,5 +1,5 @@
 @extends('layouts.index')
-@extends('layouts.flash')
+@include('layouts.flash')
 
 @section('content')
     <div class="container">

@@ -15,13 +15,36 @@ class Skill extends Seeder
     public function run()
     {
         DB::table('skills')->insert([
-            "title" => "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
-            "html" => 100, 
-            "css" => 90, 
-            "js" => 75, 
-            "php" => 80, 
-            "cms" => 90, 
-            "photoshop" => 55,
+            [
+                "technologie" => "html",
+                "value"       => 100,
+                "created_at"  => now()
+            ],
+            [
+                "technologie" => "css",
+                "value"       => 90,
+                "created_at"  => now()
+            ],
+            [
+                "technologie" => "javascript",
+                "value"       => 75,
+                "created_at"  => now()
+            ],
+            [
+                "technologie" => "php",
+                "value"       => 80,
+                "created_at"  => now()
+            ],
+            [
+                "technologie" => "wordpress/cms",
+                "value"       => 90,
+                "created_at"  => now()
+            ],
+            [
+                "technologie" => "photoshop",
+                "value"       => 55,
+                "created_at"  => now()
+            ],
         ]);
     }
 }

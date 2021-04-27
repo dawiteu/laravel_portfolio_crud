@@ -1,6 +1,6 @@
 
 @extends('layouts.index')
-@extends('layouts.flash')
+@include('layouts.flash')
 
 
 @section('content')
@@ -14,7 +14,7 @@
         @csrf
         <div>
             <h5 class="text-primary">Titre: </h5> 
-            <p> <textarea name="title" style="width:100%;" rows="3">{{ $abouts->title }} </textarea></p>
+            <p> <input name="name" style="width:100%;" value="{{ $abouts->name }}" disabled="disabled"/></p>
             @error('title')
                 <span class="text-danger">
                     <strong>{{$message}}</strong>
@@ -24,8 +24,8 @@
 
         <div>
         <h5 class="text-primary">Profil: </h5>
-        <p> <input type="text" name="descprofil" value="{{ $abouts->descprofil }}" class="w-50"> </p>
-        @error('descprofil')
+        <p> <input type="text" name="description" value="{{ $abouts->description }}" class="w-50"> </p>
+        @error('description')
             <span class="text-danger">
                 <strong>{{$message}}</strong>
             </span>

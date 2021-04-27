@@ -1,4 +1,5 @@
 @extends('layouts.index')
+@include('layouts.flash')
 
 
 @section('content')

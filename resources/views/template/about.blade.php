@@ -3,8 +3,8 @@
 <div class="container">
 
     <div class="section-title">
-    <h2>About</h2>
-    <p>{{ $about[0]->title }}</p>
+    <h2>{{ $about->name }}</h2>
+    <p>{{ $about->description }}</p>
     </div>
 
     <div class="row">
@@ -12,8 +12,8 @@
         <img src={{asset('/img/profile-img.jpg')}} class="img-fluid" alt="">
     </div>
     <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-        <h3>{{ $about[0]->descprofil }}</h3>
-        <p class="font-italic"> {{ $about[0]->desc1 }} </p>
+        <h3>{{ $about->desc1 }}</h3>
+        <p class="font-italic"> {{ $about->desc2 }} </p>
 
         <div class="row">
             
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <p> {{ $about[0]->desc2 }} </p>
+        <p> {{ $about->desc3 }} </p>
     </div>
     </div>
 
