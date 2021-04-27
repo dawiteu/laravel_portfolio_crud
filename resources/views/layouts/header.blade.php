@@ -26,7 +26,7 @@
             <li><a href={{route('ad.about.show')}}><i class='bx bx-edit-alt'></i><span>About</span></a></li>
             <li><a href={{route('ad.facts.show')}}><i class='bx bx-edit-alt'></i><span>Facts</span></a></li>
             <li><a href={{route('ad.projects.show')}}><i class='bx bx-edit-alt'></i><span>Portfolio</span></a></li>
-            <li><a href="#"><i class='bx bx-edit-alt'></i><span>Contact</span></a></li>
+            <li><a href={{route('ad.contact.show')}}><i class='bx bx-edit-alt'></i><span>Contact</span></a></li>
         @else
             <li><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
             <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>

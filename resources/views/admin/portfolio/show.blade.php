@@ -1,5 +1,5 @@
 @extends('layouts.index')
-
+@extends('layouts.flash')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
         <h3 class="text-primary">Titre:</h3>
             <p> {{ $portf->title }} </p>
 
-            <div class="mx-auto my-2"><button class="btn btn-primary">Changer le titre</button></div>
+            <div class="mx-auto my-2"><a href={{route('ad.portfolio.edititle')}}><button class="btn btn-primary">Changer le titre</button></a></div>
         Liste des projects: 
 
         <table class="table text-center table-striped ">

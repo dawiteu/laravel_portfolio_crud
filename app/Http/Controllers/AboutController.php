@@ -25,6 +25,13 @@ class AboutController extends Controller
     public function update(request $request){
         $about = About::all()->first(); 
 
+        request()->validate([
+            "title"     => ["required"], 
+            "descprofil"=> ["required"], 
+            "desc1"     => ["required"],
+            "desc2"     => ["required"] 
+        ]);
+
         foreach($request->all() as $key => $value) {
             if(($key != "_token") && ($key != "_method")){
                 $about->$key = $value; 
@@ -32,6 +39,6 @@ class AboutController extends Controller
         }
 
         $about->save(); 
-        return redirect()->route('ad.about.show');
+        return redirect()->route('ad.about.show')->with('success','Modification bien prise en compte.');
     }
 }

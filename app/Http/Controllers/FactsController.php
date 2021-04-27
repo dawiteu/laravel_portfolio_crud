@@ -24,6 +24,14 @@ class FactsController extends Controller
 
     public function update(request $request){
         $fact = Fact::all()->first(); 
+        
+        request()->validate([
+            "title"   => ["required"],
+            "fact_1"   => ["required", "numeric"],
+            "fact_2"   => ["required", "numeric"],
+            "fact_3"   => ["required", "numeric"],
+            "fact_4"   => ["required", "numeric"],
+        ]);
 
         foreach($request->all() as $key => $value) {
             if(($key != "_token") && ($key != "_method")){

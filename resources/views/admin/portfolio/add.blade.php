@@ -1,31 +1,69 @@
 @extends('layouts.index')
-
+@extends('layouts.flash')
 
 @section('content')
     <div class="container">
-        <h1 class="section-title text-primary"></h1>
+        <h1 class="section-title text-primary">Ajouter un nouveau projet</h1>
 
         <form action={{route('ad.projects.add2')}} method="POST">
             @csrf
 
-            <label for="image">Image: </label>
-                <input type="text" name="img" class="w-75"> <br/> 
+            <div class="row">
+                <div class="col-4">
+                    <label for="image">Image: </label>
+                </div>
+                <div class="col-6">
+                    <input type="text" name="img" class="w-75" value="{{old("img")}}"> <br/>
+                </div>
+                <div class="col-12">
+                    @error('img')
+                        <span class="text-danger">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror                    
+                </div>
 
-            <label for="link">Link: </label>
-                <input type="text" name="link" class="w-75"> <br/> 
+                <div class="col-4">
+                    <label for="link">Link: </label>
+                </div>
+                <div class="col-6">
+                    <input type="text" name="link" class="w-75" value="{{old("link")}}"> <br/> 
+                </div>
+                <div class="col-12">
+                    @error('link')
+                        <span class="text-danger">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                </div>
 
-            <label for="cat">Categorie? </label>
 
+                <div class="col-4">
+                    <label for="cat">Categorie? </label>
+                </div>
+                <div class="col-6">
+                    <select name="cat" selected="{{old('cat')}}">
 
-            <select name="cat">
+                        <option value="app" >app</option>
+                        <option value="card">card</option>
+                        <option value="web" >web</option>
+        
+                    </select> 
+                </div>
+                <div class="col-6 offset-3">
+                    @error('cat')
+                        <span class="text-danger">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror      
+                </div>
 
-                <option value="app" >app</option>
-                <option value="card">card</option>
-                <option value="web" >web</option>
-
-            </select> 
-            <br/> 
-            <input type="submit" value="Ajouter >> ">
+                <div class="col-12">
+                    <input type="submit" value="Ajouter >> ">
+                </div>
+            </div>
+            
+                
         </form>
     </div>
     

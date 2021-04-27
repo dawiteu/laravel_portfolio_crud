@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FactsController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProjectsController;
@@ -53,8 +54,11 @@ Route::post('/admin/edit2/facts', [FactsController::class,'update'])->name('ad.f
 
 
 // portfolio 
+// titre (portfolio)
+Route::get('/admin/edit/portfoliotitle', [ProjectsController::class,'editTitre'])->name('ad.portfolio.edititle');
+Route::post('/admin/edit2/portfolio', [ProjectsController::class,'updateTitre'])->name('ad.portfolio.et2'); 
 
-
+// les projets
 Route::get('/admin/show/projects', [ProjectsController::class,'index'])->name('ad.projects.show'); 
 Route::get('/admin/edit/projects/{id}', [ProjectsController::class,'edit'])->name('ad.projects.edit'); 
 Route::post('/admin/edit2/projects/{id}', [ProjectsController::class,'update'])->name('ad.projects.update');
@@ -63,3 +67,20 @@ Route::get('/admin/add/projects', [ProjectsController::class,'create'])->name('a
 Route::post('/admin/add2/projects', [ProjectsController::class,'store'])->name('ad.projects.add2'); 
 
 Route::delete('/admin/destroy/projects/{id}', [ProjectsController::class, 'destroy'])->name('ad.projects.destroy');
+
+
+
+//contact 
+
+Route::get('/admin/show/contact', [ContactController::class,'index'])->name('ad.contact.show'); 
+Route::get('/admin/edit/contact', [ContactController::class,'edit'])->name('ad.contact.edit');
+Route::put('/admin/update/contact', [ContactController::class,'update'])->name('ad.contact.update');
+
+
+
+
+
+
+
+
+

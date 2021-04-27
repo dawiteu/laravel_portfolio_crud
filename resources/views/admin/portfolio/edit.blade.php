@@ -1,5 +1,5 @@
 @extends('layouts.index')
-
+@extends('layouts.flash')
 
 @section('content')
     <div class="container">
@@ -8,11 +8,27 @@
         <form action={{route('ad.projects.update', $proj->id)}} method="POST">
             @csrf
 
-            <label for="image">Image: </label>
-                <input type="text" name="img" class="w-75" value="{{$proj->img}} "> <br/> 
+            <label for="img">Image: </label>
+                <input type="text" name="img" class="w-75" value="{{$proj->img}} ">  
+            
+            @error('img')
+                <span class="text-danger">
+                    <strong>{{$message}}</strong>
+                </span>
+            @enderror
+
+            <br/>
 
             <label for="link">Link: </label>
-                <input type="text" name="link" class="w-75" value="{{$proj->link }} "> <br/> 
+                <input type="text" name="link" class="w-75" value="{{$proj->link }} ">  
+
+            @error('link')
+                <span class="text-danger">
+                    <strong>{{$message}}</strong>
+                </span>
+            @enderror
+
+            <br/>   
 
             <label for="cat">Categorie? </label>
 
@@ -24,6 +40,13 @@
                 <option value="web" {{ $proj->cat === 'web' ? 'selected=selected' : ''}}>web</option>
 
             </select> 
+
+            @error('cat')
+                <span class="text-danger">
+                    <strong>{{$message}}</strong>
+                </span>
+            @enderror
+
             <br/> 
             <input type="submit" value="Modifier >> ">
         </form>

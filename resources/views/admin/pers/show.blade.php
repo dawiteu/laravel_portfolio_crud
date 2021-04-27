@@ -1,4 +1,6 @@
 @extends('layouts.index')
+@extends('layouts.flash') 
+
 
 @section('content')
     <div class="container">
@@ -9,7 +11,7 @@
             <div class="col-6">
                 Prénom: {{ $user->prenom }} <br/>
                 Nom : {{ $user->nom }} <br/>
-                DDN: {{ $user->date}} <br/>
+                DDN: {{ $user->date }} <br/> 
                 SITE : {{ $user->website }} <br/> 
                 Ville: {{$user->city }} 
             </div>
