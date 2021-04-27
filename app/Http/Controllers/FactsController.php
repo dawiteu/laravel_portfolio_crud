@@ -10,27 +10,26 @@ class FactsController extends Controller
 {
     public function index(){
         $user = User::all()->first(); 
-        $facts = Fact::all()->first(); 
+        $facts = Fact::all(); 
 
         return view('admin.facts.show', compact('facts', 'user'));
     }
 
-    public function edit(){
+    public function edit(Fact $id){
         $user = User::all()->first(); 
-        $fact = Fact::all()->first(); 
+        $fact = $id;  
         
         return view('admin.facts.edit', compact('fact', 'user'));
     }
 
-    public function update(request $request){
-        $fact = Fact::all()->first(); 
+    public function update(Fact $id, request $request){
+        $fact = $id; 
         
         request()->validate([
             "title"   => ["required"],
-            "fact_1"   => ["required", "numeric"],
-            "fact_2"   => ["required", "numeric"],
-            "fact_3"   => ["required", "numeric"],
-            "fact_4"   => ["required", "numeric"],
+            "icon"   => ["required"],
+            "desc"   => ["required"],
+            "value"  => ["required", "numeric"]
         ]);
 
         foreach($request->all() as $key => $value) {
@@ -42,4 +41,6 @@ class FactsController extends Controller
         $fact->save(); 
         return redirect()->route('ad.facts.show');
     }
+
+
 }

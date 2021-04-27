@@ -3,8 +3,8 @@
     <div class="container">
 
         <div class="section-title">
-        <h2>Portfolio</h2>
-        <p>{{ $portfolio->title }} </p>
+        <h2>{{ $portfolio->name }}</h2>
+        <p>{{ $portfolio->description }} </p>
         </div>
 
         <div class="row" data-aos="fade-up">

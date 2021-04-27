@@ -23,6 +23,8 @@ class FrontController extends Controller
         //facts: 
         $fact = Page::all()->where('name','Facts')->first();  //Fact::all()->first();  
         $facts = Fact::all(); 
+
+        
         //skills
         $skill = Page::all()->where('name','Skills')->first();
         $skills = Skill::all(); 
@@ -35,8 +37,12 @@ class FrontController extends Controller
         $tests = Page::all()->where('name', 'Testimontials')->first(); 
 
         //portfolio: 
-        $portfolio = Portfolio::all()->first(); 
+        $portfolio = Page::all()->where('name','Portfolio')->first(); //Portfolio::all()->first(); 
         $projects = Projects::all(); 
+
+                    //skills: 
+                    //$skill = Page::all()->where('name', 'Skills'); 
+                    //$skills = Skill::all(); 
 
         //contact: 
 

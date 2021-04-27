@@ -21,7 +21,6 @@
         </div>
         @endif
     </div>
-
     <nav class="nav-menu">
     <ul>
         @if (request()->is('admin/*') || request()->path() == 'admin') 
@@ -29,6 +28,8 @@
             <li><a href={{route('ad.infop.show')}}><i class='bx bx-show'></i><span>Info Personelles</span></a></li>
             <li><a href={{route('ad.about.show')}}><i class='bx bx-edit-alt'></i><span>About</span></a></li>
             <li><a href={{route('ad.facts.show')}}><i class='bx bx-edit-alt'></i><span>Facts</span></a></li>
+            <li><a href={{route('ad.skills.show')}}><i class='bx bx-edit-alt'></i><span>Skills</span></a></li>
+            
             <li><a href={{route('ad.projects.show')}}><i class='bx bx-edit-alt'></i><span>Portfolio</span></a></li>
             <li><a href={{route('ad.contact.show')}}><i class='bx bx-edit-alt'></i><span>Contact</span></a></li>
             <li><a href={{route('ad.mailbox.show')}}><i class="bx bx-envelope"></i><span>Mailbkkkox</span></a></li>

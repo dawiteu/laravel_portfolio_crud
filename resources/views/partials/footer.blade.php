@@ -1,3 +1,7 @@
+@if (request()->is('admin/*') || request()->path() == 'admin') 
+            
+@else
+
 <!-- ======= Footer ======= -->
 <footer id="footer">
 <div class="container">
@@ -13,3 +17,5 @@
     </div>
 </div>
 </footer><!-- End  Footer -->
+
+@endif

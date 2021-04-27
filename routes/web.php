@@ -6,6 +6,7 @@ use App\Http\Controllers\FactsController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MailboxController;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\UserController;
 use App\Models\Fact;
 use App\Models\User;
@@ -50,11 +51,21 @@ Route::post('/admin/edit2/about', [AboutController::class,'update'])->name('ad.a
 
 /// les facts 
 Route::get('/admin/show/facts', [FactsController::class,'index'])->name('ad.facts.show'); 
-Route::get('/admin/edit/facts', [FactsController::class,'edit'])->name('ad.facts.edit'); 
-Route::post('/admin/edit2/facts', [FactsController::class,'update'])->name('ad.facts.update'); 
+Route::get('/admin/edit/facts/{id}', [FactsController::class,'edit'])->name('ad.facts.edit'); 
+Route::post('/admin/edit2/facts/{id}', [FactsController::class,'update'])->name('ad.facts.update'); 
 
+//skills 
 
+Route::get('/admin/show/skills', [SkillsController::class, 'index'])->name('ad.skills.show'); 
+Route::get('/admin/edit/skills/{id}', [SkillsController::class,'edit'])->name('ad.skills.edit'); 
+Route::put('/admin/update/skills/{id}', [SkillsController::class,'update'])->name('ad.skills.update'); 
+
+Route::get('/admin/add/skills', [SkillsController::class,'create'])->name('ad.skills.add'); 
+Route::post('/admin/add2/skills', [SkillsController::class,'store'])->name('ad.skills.store'); 
+
+Route::delete('/admin/delete/skills/{id}', [SkillsController::class,'destroy'])->name('ad.skills.destroy'); 
 // portfolio 
+
 // titre (portfolio)
 Route::get('/admin/edit/portfoliotitle', [ProjectsController::class,'editTitre'])->name('ad.portfolio.edititle');
 Route::post('/admin/edit2/portfolio', [ProjectsController::class,'updateTitre'])->name('ad.portfolio.et2'); 

@@ -9,16 +9,22 @@
             Apperçu de la page facts: 
         </h1>
 
-        <h5 class="text-primary">Titre: </h5> 
-        <p> {{ $facts->title }} </p>
+        <div class="container row">
+            @foreach ($facts as $fact)
+                <div class="col-3 m-2 border">
+                    <p class="text-center">Title: <br/> {{$fact->title}} </p>
+                    <p class="text-center">Description: <br/> {{$fact->desc}}</p>
+                    <p class="text-center">Icon: <i class="{{$fact->icon}}"></i></p>
+                    <p class="text-center">
+                        <a href={{route('ad.facts.edit', $fact->id)}}>
+                            <button class="btn btn-warning">M</button>
+                        </a>
+                    </p>
+                </div>
+            @endforeach
+        </div>
 
-        <h5 class="text-primary">Fact (1):  <span class="text-dark">{{ $facts->fact_1}} </span></h5>
-        <h5 class="text-primary">Fact (2):   <span class="text-dark">{{ $facts->fact_2}}</span> </h5>
-        <h5 class="text-primary">Fact (3):   <span class="text-dark">{{ $facts->fact_3}} </span></h5>
-        <h5 class="text-primary">Fact (4):   <span class="text-dark">{{ $facts->fact_4}} </span></h5>
-
-        <br/> 
-        <a href={{route('ad.facts.edit')}} class="btn btn-warning">Modifier</a>
+        <br/>
     </div>
 @endsection
 

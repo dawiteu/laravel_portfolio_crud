@@ -2,63 +2,54 @@
 @include('layouts.flash')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5">
         <h1 class="section-title text-primary">
-            Modification des  facts: 
+            Modification d'un facts (id: {{$fact->id}}): 
         </h1>
 
 
-        <form action={{route('ad.facts.update')}} method="POST">
+        <form action={{route('ad.facts.update', $fact->id)}} method="POST">
         @csrf
     
         <h5 class="text-primary">Titre: </h5> 
-        <p> <textarea name="title" style="width:100%;" rows="3">{{ $fact->title }} </textarea></p>
-            @error('title')
+        <p> <input name="title" style="width:100%;" value="{{ $fact->title }}"/> </p>
+
+        @error('title')
+            <span class="text-danger">
+                <strong>{{$message}}</strong>
+            </span>
+        @enderror
+
+
+        <h5 class="text-primary">Icon: </h5> 
+        <p><input type="text" name="icon" value="{{$fact->icon}}" /> </p>
+
+        @error('icon')
+            <span class="text-danger">
+                <strong>{{$message}}</strong>
+            </span>
+        @enderror
+
+
+        <h5 class="text-primary"> Description: </h5>
+            <p><input type="text" name="desc" value="{{$fact->desc}}" /></p>
+
+            @error('desc')
                 <span class="text-danger">
                     <strong>{{$message}}</strong>
                 </span>
             @enderror
 
 
-        <h3>
-            Fact 1: <input type="number" name="fact_1" value="{{$fact->fact_1}}" min="0" /> 
-            @error('fact_1')
+        <h5 class="text-primary"> Value: </h5>
+            <p><input type="number" name="value" value="{{$fact->value}}" /></p>
+
+            @error('value')
                 <span class="text-danger">
                     <strong>{{$message}}</strong>
                 </span>
             @enderror
 
-        </h3>
-
-        <h3>
-            Fact 2: <input type="number" name="fact_2" value="{{$fact->fact_2}}" min="0" />
-            @error('fact_2')
-                <span class="text-danger">
-                    <strong>{{$message}}</strong>
-                </span>
-            @enderror
-
-        </h3>
-
-        <h3>
-            Fact 3: <input type="number" name="fact_3" value="{{$fact->fact_3}}" min="0" />
-            @error('fact_3')
-                <span class="text-danger">
-                    <strong>{{$message}}</strong>
-                </span>
-            @enderror
-
-        </h3>
-
-        <h3>
-            Fact 4: <input type="number" name="fact_4" value="{{$fact->fact_4}}" min="0" />
-            @error('fact_4')
-                <span class="text-danger">
-                    <strong>{{$message}}</strong>
-                </span>
-            @enderror
-
-        </h3>
 
 
         <input type="submit" class="btn btn-success" value="Envoyer la modification "/>
