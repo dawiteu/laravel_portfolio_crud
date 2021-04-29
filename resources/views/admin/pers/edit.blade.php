@@ -3,14 +3,14 @@
 
 @section('content')
 <div class="container mt-5">
-        <h3 class="text-primary">Infos personnelles: </h3> 
-    <form action={{route('ad.infop.update')}} method="POST">
+        <h3 class="text-primary">Infos personnelles: xx</h3> 
+    <form action={{route('ad.infop.update')}} method="POST" enctype="multipart/form-data">
         
     @csrf
     @method('PUT')
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-6 ">
                 <div class="row">
                     <div class="col-2">
                         <label for="prenom">Prénom:</label>
@@ -75,7 +75,7 @@
                 </div>
 
             </div>
-            <div class="col-6">
+            <div class="col-6 ">
                 <div class="row">
                     <div class="col-2">
                         <label for="ville">Etudes:</label>
@@ -105,8 +105,31 @@
                         <label for="freelance">Disponib:</label>
                     </div>
                     <div class="col-9">
-                        <input type="freelance" name="freelance" value="{{$user->freelance}}"/> <br/> 
+                        <input type="text" name="freelance" value="{{$user->freelance}}"/> <br/> 
                         @error('freelance')
+                        <span class="text-danger">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="col-2">
+                        <label for="img">Image:</label>
+                        <button 
+                            type="button"
+                            class="btn btn-secondary" 
+                            onclick="javascript:document.querySelector('input[name=actimg]').value='';return false;"
+                            data-toggle="tooltip" 
+                            data-placement="bottom" 
+                            title="Attention! vider seulement si vous uploader une nouvelle image!"
+                            >vider
+                        </button>
+                    </div>
+                    <div class="col-9">
+                        {{-- <input type="text" name="actimg" value="{{$user->img}}" placeholder="nouveau link"/><br/> --}}
+                        <input type="file" name="fileimg" /> <br/>
+
+                        @error('fileimg')
                         <span class="text-danger">
                             <strong>{{$message}}</strong>
                         </span>
@@ -116,11 +139,10 @@
                 </div>
             </div>
         
+            <div class="col-12 text-center mt-5">
+                <input type="submit" class="btn btn-success" value="Valider la modification > " />
+            </div>
         </div>
-    
-        <br/> 
-    
-        <input type="submit" class="btn btn-success" value="Valider la modification > " />
     </form>
 </div>
 

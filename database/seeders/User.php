@@ -24,6 +24,7 @@ class User extends Seeder
             "degree"       => "Master",
             "city"       => "New York, USA",
             "freelance"       => "Avaible",
+            "img"             => "profile-img.jpg", // ../../../img/
             "created_at"    => now()
         ]);
     }

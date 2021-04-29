@@ -2,7 +2,13 @@
 <div class="d-flex flex-column">
 
     <div class="profile">
-    <img src={{ asset('img/profile-img.jpg')}} alt="" class="img-fluid rounded-circle">
+    {{-- <img src={{ asset('img/profile-img.jpg')}} alt="" class="img-fluid rounded-circle"> --}}
+    @if (File::exists("storage/img/upload/".$user->img))
+        <img src={{asset("storage/img/upload/".$user->img)}} alt="" class="img-fluid rounded-circle"/>
+    @else
+        <img src={{asset("img/".$user->img)}} alt="" class="img-fluid rounded-circle"/>
+    @endif
+
     <h1 class="text-light">
             <a href="index.html">{{ $user->prenom }} {{ $user->nom }} </a> 
             @if (request()->is('admin/*') || request()->path() == 'admin')

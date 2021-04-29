@@ -24,14 +24,12 @@ class ContactController extends Controller
 
     public function update(Contact $id, request $request){
         $cont = $id; 
-
         foreach($request->all() as $key => $value) {
             if(($key != "_token") && ($key != "_method")){
                 $cont->$key = $value; 
             }
         }
         $cont->save(); 
-
         return redirect()->route('ad.contact.show');
     }
 }

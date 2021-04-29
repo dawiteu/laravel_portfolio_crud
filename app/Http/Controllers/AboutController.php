@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class AboutController extends Controller
 {
     public function index(){
-        $user = User::all()->first(); 
+        $user = User::all()->first();
         $abouts = Page::all()->where('name','About')->first(); //About::all(); 
         return view('admin.about.show', compact('user', 'abouts')); 
     }

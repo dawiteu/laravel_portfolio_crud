@@ -9,7 +9,14 @@
 
     <div class="row">
     <div class="col-lg-4" data-aos="fade-right">
-        <img src={{asset('/img/profile-img.jpg')}} class="img-fluid" alt="">
+
+    @if (File::exists("storage/img/upload/".$user->img))
+        <img src={{asset("storage/img/upload/".$user->img)}} style="width:200px; height:200px; " alt="" class="img-fluid"/>
+    @else
+        <img src={{asset("img/".$user->img)}} style="width:200px; height:200px; " alt="" class="img-fluid"/>
+    @endif
+        {{-- <img src={{asset($user->img)}} class="img-fluid" alt="img no work"> --}}
+        {{-- <p>{{$user->img}}</p> --}}
     </div>
     <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
         <h3>{{ $about->desc1 }}</h3>
@@ -19,7 +26,7 @@
             
             <div class="col-lg-6">
                 <ul>
-                    <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> {{ $user->date }}</li>
+                    <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> {{ $date }}</li>
                     <li><i class="icofont-rounded-right"></i> <strong>Website:</strong> {{ $user->website }} </li>
                     <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> {{ $user->tel }}</li>
                     <li><i class="icofont-rounded-right"></i> <strong>City:</strong> {{ $user->city }}</li>

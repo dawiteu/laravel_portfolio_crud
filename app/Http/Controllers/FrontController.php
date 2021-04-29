@@ -17,6 +17,9 @@ class FrontController extends Controller
 {
     public function index(){
         $user  = User::all()->first();
+        $date1 = explode("-",$user->date);  
+        $date = $date1[2]."/".$date1[1]."/".$date1[0]; 
+
         //about 
         $about = Page::all()->where('name','About')->first(); 
 
@@ -48,7 +51,7 @@ class FrontController extends Controller
 
         $contact = Page::all()->where('name', 'Contact')->first();  //Contact::all()->first(); 
         $conts = Contact::all();
-        return view('index', compact('about', 'user','fact','facts','skill','skills','servi','services','tests', 'portfolio', 'projects', 'contact','conts')); 
+        return view('index', compact('about', 'user','fact','facts','skill','skills','servi','services','tests', 'portfolio', 'projects', 'contact','conts', 'date')); 
     }
 
     public function portfoliodet(){

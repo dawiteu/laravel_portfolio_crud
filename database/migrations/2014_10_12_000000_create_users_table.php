@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('degree'); 
             $table->string('city');
             $table->string('freelance'); 
+            $table->string('img');
             $table->timestamps();
         });
     }
