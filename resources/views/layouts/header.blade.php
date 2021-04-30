@@ -35,7 +35,7 @@
             <li><a href={{route('ad.about.show')}}><i class='bx bx-edit-alt'></i><span>About</span></a></li>
             <li><a href={{route('ad.facts.show')}}><i class='bx bx-edit-alt'></i><span>Facts</span></a></li>
             <li><a href={{route('ad.skills.show')}}><i class='bx bx-edit-alt'></i><span>Skills</span></a></li>
-            
+            <li><a href={{route('ad.services.show')}}><i class='bx bx-edit-alt'></i><span>Services</span></a></li>
             <li><a href={{route('ad.projects.show')}}><i class='bx bx-edit-alt'></i><span>Portfolio</span></a></li>
             <li><a href={{route('ad.contact.show')}}><i class='bx bx-edit-alt'></i><span>Contact</span></a></li>
             <li><a href={{route('ad.mailbox.show')}}><i class="bx bx-envelope"></i><span>Mailbkkkox</span></a></li>

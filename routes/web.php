@@ -6,6 +6,7 @@ use App\Http\Controllers\FactsController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MailboxController;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\UserController;
 use App\Models\Fact;
@@ -98,6 +99,14 @@ Route::get('/admin/mailbox/show/{id}', [MailboxController::class,'show'])->name(
 Route::post('/sendmail', [MailboxController::class,'store'])->name('ad.mailbox.send'); 
 
 
+/// ajouter a la fin: 
+
+//services: 
+Route::get('/admin/services/show', [ServiceController::class,'index'])->name('ad.services.show'); 
+Route::get('/admin/edit/service/{id}', [ServiceController::class,'edit'])->name('ad.services.edit');
+Route::put('/admin/update/service/{id}', [ServiceController::class,'update'])->name('ad.services.update'); 
+
+Route::get('/admin/add/service/', [ServiceController::class,'create'])->name('ad.services.add'); 
 
 
 

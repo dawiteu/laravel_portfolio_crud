@@ -17,5 +17,11 @@
         @endforeach
     </div>
 
+    @if ($services->count() > 6)
+        plus que 6
+    @else
+        moins que 6 **
+    @endif
+
 </div>
 </section><!-- End Services Section -->
