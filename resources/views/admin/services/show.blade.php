@@ -21,13 +21,21 @@
                     <td>{{$service->desc}}</td>
                     <td class="d-flex">
                         <a href={{route('ad.services.edit', $service->id)}} class="btn btn-warning">M</a>
-                        <form action="#" method="POST">
+                        <form action={{route('ad.services.destroy', $service->id)}} method="POST">
+                            @csrf
+                            @method('DELETE')
                             <button class="btn btn-danger">X</button>
                         </form>
                     </td>
                 </tr>
             @endforeach
+
+            
         </table>
+
+        <p>xxx</p>
+        <div class="w-50 mx-auto">{{ $services->links() }}</div> 
+
 
         <div class="text-center mt-5"><a href={{route('ad.services.add')}}><button class="btn btn-success">+++ Ajouter un service +++</button></a></div>
     </div>

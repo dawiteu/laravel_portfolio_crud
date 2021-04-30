@@ -34,7 +34,7 @@ class FrontController extends Controller
 
         //services: 
         $servi = Page::all()->where('name','Services')->first(); 
-        $services = Service::all();
+        $services = Service::paginate(6); //Service::all();
 
         //testimontials: 
         $tests = Page::all()->where('name', 'Testimontials')->first(); 

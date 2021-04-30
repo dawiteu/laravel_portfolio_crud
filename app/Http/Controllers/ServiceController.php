@@ -10,7 +10,7 @@ class ServiceController extends Controller
 {
     public function index(){
         $user  = User::all()->first();
-        $services = Service::all(); 
+        $services = Service::paginate(6); 
 
         return view('admin.services.show', compact('user','services'));
     }
@@ -26,8 +26,23 @@ class ServiceController extends Controller
         return view('admin.services.add', compact('user')); 
     }
 
-    public function store(){
-        // store; 
+    public function store(Request $request){ 
+        $serv = new Service(); 
+
+        request()->validate([
+            "icon"   => ["required"], 
+            "title"  => ["required"], 
+            "desc"   => ["required"] 
+        ]);
+
+        foreach($request->all() as $key => $value) {
+            if(($key != "_token") && ($key != "_method")){
+                $serv->$key = $value; 
+            }
+        }
+
+        $serv->save(); 
+        return redirect()->route('ad.services.show')->with("success", "Service bien ajouté.");
     }
 
     public function update(Service $id, Request $request){ 
@@ -44,8 +59,13 @@ class ServiceController extends Controller
                 $serv->$key = $value; 
             }
         }
-        
+
         $serv->save(); 
         return redirect()->route('ad.services.show')->with('success','Service bien modifié'); 
+    }
+
+    public function destroy(Service $id){
+        $id->delete();
+        return redirect()->route('ad.services.show'); 
     }
 }

@@ -15,7 +15,11 @@
                 <p class="description"> {{$serv->desc}}</p>
             </div>
         @endforeach
+        {{-- <div class="col-12">
+            {{ $services->links() }}
+        </div> --}}
     </div>
+
 
     @if ($services->count() > 6)
         plus que 6

@@ -7,6 +7,7 @@ use App\Models\Projects;
 use App\Models\User;
 use Database\Seeders\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectsController extends Controller
 {
@@ -57,19 +58,25 @@ class ProjectsController extends Controller
         $proj = new Projects(); 
 
         request()->validate([
-            "img"   => ["required"], 
+            "img"   => ["mimes:jpeg,jpg,png,gif","max:10000"],
             "link"  => ["required"], 
             "cat"   => ["required"] 
         ]);
 
         foreach($request->all() as $key => $value) {
-            if(($key != "_token") && ($key != "_method")){
+            if(($key != "_token") && ($key != "_method") && ($key != "img")){
                 $proj->$key = $value; 
             }
         }
 
+        if($request->hasFile('img')){
+            Storage::delete("storage/img/upload/".$proj->img);
+            Storage::put("public/img/upload/", $request->file('img'));
+            $proj->img = $request->file('img')->hashName(); 
+        }
+
         $proj->save(); 
-        return redirect()->route('ad.projects.show')->with("success", "Projet bien ajouter.");
+        return redirect()->route('ad.projects.show')->with("success", "Projet bien ajouté.");
     }
 
     public function destroy(Projects $id){

@@ -101,12 +101,15 @@ Route::post('/sendmail', [MailboxController::class,'store'])->name('ad.mailbox.s
 
 /// ajouter a la fin: 
 
+
 //services: 
 Route::get('/admin/services/show', [ServiceController::class,'index'])->name('ad.services.show'); 
 Route::get('/admin/edit/service/{id}', [ServiceController::class,'edit'])->name('ad.services.edit');
 Route::put('/admin/update/service/{id}', [ServiceController::class,'update'])->name('ad.services.update'); 
 
 Route::get('/admin/add/service/', [ServiceController::class,'create'])->name('ad.services.add'); 
+Route::post('/admin/service/store', [ServiceController::class,'store'])->name('ad.services.store');
+Route::delete('/admin/service/delete/{id}', [ServiceController::class,'destroy'])->name('ad.services.destroy');
 
 
 

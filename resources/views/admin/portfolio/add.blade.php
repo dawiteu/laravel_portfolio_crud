@@ -5,7 +5,7 @@
     <div class="container">
         <h1 class="section-title text-primary">Ajouter un nouveau projet</h1>
 
-        <form action={{route('ad.projects.add2')}} method="POST">
+        <form action={{route('ad.projects.add2')}} method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="row">
@@ -13,7 +13,8 @@
                     <label for="image">Image: </label>
                 </div>
                 <div class="col-6">
-                    <input type="text" name="img" class="w-75" value="{{old("img")}}"> <br/>
+                    {{-- <input type="text" name="img" class="w-75" value="{{old("img")}}"> <br/> --}}
+                    <input type="file" name="img" />
                 </div>
                 <div class="col-12">
                     @error('img')

@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container mt-5">
-        <h3 class="text-primary">Infos personnelles: xx</h3> 
+        <h3 class="text-primary">Infos personnelles: </h3> 
     <form action={{route('ad.infop.update')}} method="POST" enctype="multipart/form-data">
         
     @csrf

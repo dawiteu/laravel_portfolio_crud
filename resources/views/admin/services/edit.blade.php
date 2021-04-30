@@ -27,7 +27,6 @@
 
 
                 <div class="col-2">
-                    <i class="{{$serv->title}}"></i> 
                     <label for="title">Titre:</label>
                 </div>
                 <div class="col-10">
@@ -40,7 +39,6 @@
                 </div>
 
                 <div class="col-2">
-                    <i class="{{$serv->desc}}"></i> 
                     <label for="desc">description:</label>
                 </div>
                 <div class="col-10">
