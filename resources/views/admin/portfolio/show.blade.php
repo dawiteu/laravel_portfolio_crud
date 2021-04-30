@@ -3,13 +3,8 @@
 
 @section('content')
     <div class="container">
-        <h1 class="section-title text-primary">Appercu de la page Portfolio.</h1>
 
-        <h3 class="text-primary">Titre:</h3>
-            <p> {{ $portf->title }} </p>
-
-            <div class="mx-auto my-2"><a href={{route('ad.portfolio.edititle')}}><button class="btn btn-primary">Changer le titre</button></a></div>
-        Liste des projects: 
+        <h1 class="section-title text-primary mt-5">Liste des projets dans le Portfolio:</h1>
 
         <table class="table text-center table-striped ">
             <tr><th>Action</th><th>ID</th><th>IMG:</th><th>Link:</th><th>Categorie</th></tr>
@@ -29,7 +24,7 @@
 
         </table>
 
-        {{-- <div class="mx-auto">{{ dd($projs->links()) }}</div>  --}}
+        <div class="mx-auto  d-flex justify-content-center">{{ $projs->links() }}</div> 
 
 
         <div class="text-center mt-5"><a href={{route('ad.projects.add')}}><button class="btn btn-success">+++ Ajouter un projet +++</button></a></div>

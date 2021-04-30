@@ -30,8 +30,6 @@
                         <img src={{asset("img/portfolio/".$proj->img)}}  alt="Proj no: {{$proj->id}}" class="img-fluid" /> 
                     @endif
 
-
-
                     <div class="portfolio-links">
                         <a href={{$proj->img}} data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
                         <a href={{$proj->link}} title="More Details"><i class="bx bx-link"></i></a>

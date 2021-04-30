@@ -5,11 +5,11 @@
     <div class="container">
         <h1 class="section-title text-primary">Edit project id: {{ $proj->id }} </h1>
 
-        <form action={{route('ad.projects.update', $proj->id)}} method="POST">
+        <form action={{route('ad.projects.update', $proj->id)}} method="POST" enctype="multipart/form-data">
             @csrf
 
             <label for="img">Image: </label>
-                <input type="text" name="img" class="w-75" value="{{$proj->img}} ">  
+                <input type="file" name="img" class="w-75" />  
             
             @error('img')
                 <span class="text-danger">

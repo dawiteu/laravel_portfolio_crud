@@ -19,7 +19,7 @@ class MailboxController extends Controller
     public function show(Mail $id){
         $user = User::all()->first(); 
         $mail = $id; 
-        $mail->lu = 0 ? $mail->lu = 1 : $mail->lu = 0; 
+        $mail->lu == 0 ? $mail->lu = 1 : $mail->lu = 0; 
         $mail->save(); 
         return view('admin.mailbox.show', compact('user','mail'));
     }

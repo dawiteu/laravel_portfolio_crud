@@ -2,7 +2,7 @@
 <section id="services" class="services">
 <div class="container">
 
-    <div class="section-title">
+    <div class="section-title" >
     <h2>{{$servi->name}}</h2>
     <p>{{ $servi->description}} </p>
     </div>
@@ -15,17 +15,12 @@
                 <p class="description"> {{$serv->desc}}</p>
             </div>
         @endforeach
-        {{-- <div class="col-12">
+        <div class="col-12 d-flex justify-content-center">
             {{ $services->links() }}
-        </div> --}}
+        </div>
     </div>
 
 
-    @if ($services->count() > 6)
-        plus que 6
-    @else
-        moins que 6 **
-    @endif
 
 </div>
 </section><!-- End Services Section -->

@@ -33,7 +33,6 @@
             
         </table>
 
-        <p>xxx</p>
         <div class="w-50 mx-auto">{{ $services->links() }}</div> 
 
 

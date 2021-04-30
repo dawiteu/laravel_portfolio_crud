@@ -5,11 +5,13 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FactsController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MailboxController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\UserController;
 use App\Models\Fact;
+use App\Models\Page;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -34,8 +36,14 @@ Route::get('/portfolio-detail', [FrontController::class,'portfoliodet']);
 
 Route::get('/admin', function(){ 
     $user = User::all()->first(); 
-    return view('admin.index', compact('user'));
+    $pages = Page::all(); 
+    return view('admin.index', compact('user', 'pages'));
 })->name('admin.home');
+
+//pages 
+
+Route::get('/admin/pages/edit/{id}', [PagesController::class,'edit'])->name('ad.pages.edit');
+Route::put('/admin/update/page/{id}', [PagesController::class,'update'])->name('ad.pages.update');
 
 
 // infos personnelles 

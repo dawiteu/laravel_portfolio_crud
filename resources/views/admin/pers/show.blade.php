@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="section-title text-primary">Informations personnelles: abc</h1>
+        <h1 class="section-title text-primary">Informations personnelles:</h1>
 
 
         <div class="row">
@@ -21,20 +21,12 @@
                 Disponibilitée: {{$user->freelance}} <br/> 
                 Photo de Profil: <br/> 
 
-                
-
-
-
                 @if (File::exists("storage/img/upload/".$user->img))
                     <img src={{asset("storage/img/upload/".$user->img)}} style="width:200px; height:200px; " alt="" class="img-fluid"/>
                 @else
                     <img src={{asset("img/".$user->img)}} style="width:200px; height:200px; " alt="" class="img-fluid"/>
                 @endif
 
-                {{--  ../../../img/   <img src={{asset("storage/img/upload/".$user->img)}} style="width:200px; height:200px; " alt="" class="img-fluid"/> --}}
-
-
-                <p>{{$user->img }}</p>
             </div>
         </div>
 

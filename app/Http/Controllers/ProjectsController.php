@@ -17,7 +17,7 @@ class ProjectsController extends Controller
     public function index(){
         $user = User::all()->first(); 
         $portf = Portfolio::all()->first(); 
-        $projs = Projects::all(); 
+        $projs = Projects::paginate(10); 
 
         return view('admin.portfolio.show', compact('projs', 'user', 'portf'));
     }
@@ -34,7 +34,7 @@ class ProjectsController extends Controller
         $proj = $id; 
         //$title = Portfolio::all()->first(); 
         request()->validate([
-            "img"   => ["required"], 
+            "img"   => ["nullable","mimes:jpeg,jpg,png,gif","max:10000"], 
             "link"  => ["required"], 
             "cat"   => ["required"] 
         ]);
@@ -44,6 +44,13 @@ class ProjectsController extends Controller
                 $proj->$key = $value; 
             }
         }
+
+        if($request->hasFile('img')){
+            Storage::delete("storage/img/upload/".$proj->img);
+            Storage::put("public/img/upload/", $request->file('img'));
+            $proj->img = $request->file('img')->hashName(); 
+        }
+
 
         $proj->save(); 
         return redirect()->route('ad.projects.show')->with("success", "Projet bien modifier.");
