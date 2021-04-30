@@ -9,22 +9,24 @@
             Apperçu de la page facts: 
         </h1>
 
-        <div class="container row">
+        <table class="table table-dark table-stripped text-center">
+            <tr><td>Titre du fait:</td><td>Nombre </td><td>Description</td><td>Icon</td><td>Action</td></tr>
             @foreach ($facts as $fact)
-                <div class="col-3 m-2 border">
-                    <p class="text-center">Title: <br/> {{$fact->title}} </p>
-                    <p class="text-center">Description: <br/> {{$fact->desc}}</p>
-                    <p class="text-center">Icon: <i class="{{$fact->icon}}"></i></p>
-                    <p class="text-center">
-                        <a href={{route('ad.facts.edit', $fact->id)}}>
+            <tr>
+                <td>{{$fact->title}}</td>
+                <td>{{$fact->value}}</td>
+                <td> {{$fact->desc}}</td>
+                <td><i class="{{$fact->icon}}"></i></td>
+                <td>
+                    <a href={{route('ad.facts.edit', $fact->id)}}>
                             <button class="btn btn-warning">M</button>
-                        </a>
-                    </p>
-                </div>
+                    </a>
+                </td>
+            </tr> 
             @endforeach
-        </div>
-
+        </table>
         <br/>
+        
     </div>
 @endsection
 

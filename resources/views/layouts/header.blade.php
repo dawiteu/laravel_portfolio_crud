@@ -32,7 +32,7 @@
         @if (request()->is('admin/*') || request()->path() == 'admin') 
             <li><a href={{route('admin.home')}}><i class='bx bx-home'></i><span>Back Office Home</span></a></li>
             <li><a href={{route('ad.infop.show')}}><i class='bx bx-show'></i><span>Info Personelles</span></a></li>
-            <li><a href={{route('ad.about.show')}}><i class='bx bx-edit-alt'></i><span>About</span></a></li>
+            {{-- <li><a href={{route('ad.about.show')}}><i class='bx bx-edit-alt'></i><span>About</span></a></li> --}}
             <li><a href={{route('ad.facts.show')}}><i class='bx bx-edit-alt'></i><span>Facts</span></a></li>
             <li><a href={{route('ad.skills.show')}}><i class='bx bx-edit-alt'></i><span>Skills</span></a></li>
             <li><a href={{route('ad.services.show')}}><i class='bx bx-edit-alt'></i><span>Services</span></a></li>
