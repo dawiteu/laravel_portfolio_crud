@@ -33,7 +33,7 @@
             
         </table>
 
-        <div class="w-50 mx-auto">{{ $services->links() }}</div> 
+        <div class="mx-auto">{{ $services->links() }}</div> 
 
 
         <div class="text-center mt-5"><a href={{route('ad.services.add')}}><button class="btn btn-success">+++ Ajouter un service +++</button></a></div>

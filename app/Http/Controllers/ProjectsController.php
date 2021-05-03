@@ -93,30 +93,4 @@ class ProjectsController extends Controller
     }
 
 
-    // portfolio --- pour ne pas devoir faire 2 controlleur pour un simple titre... 
-
-    public function editTitre(){
-        $user = User::all()->first(); 
-        $titre = Portfolio::all()->first(); 
-
-        return view('admin.portfolio.title', compact('user', 'titre'));
-    }
-
-    public function updateTitre(Request $request){
-        $user = User::all()->first(); 
-        $titre = Portfolio::all()->first(); 
-
-        request()->validate([
-            "title"  => ["required"],
-        ]);
-
-        foreach($request->all() as $key => $value) {
-            if(($key != "_token") && ($key != "_method")){
-                $titre->$key = $value; 
-            }
-        }
-
-        $titre->save(); 
-        return redirect()->route('ad.projects.show');
-    }
 }

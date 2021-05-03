@@ -76,8 +76,8 @@ Route::delete('/admin/delete/skills/{id}', [SkillsController::class,'destroy'])-
 // portfolio 
 
 // titre (portfolio)
-Route::get('/admin/edit/portfoliotitle', [ProjectsController::class,'editTitre'])->name('ad.portfolio.edititle');
-Route::post('/admin/edit2/portfolio', [ProjectsController::class,'updateTitre'])->name('ad.portfolio.et2'); 
+//Route::get('/admin/edit/portfoliotitle', [ProjectsController::class,'editTitre'])->name('ad.portfolio.edititle');
+//Route::post('/admin/edit2/portfolio', [ProjectsController::class,'updateTitre'])->name('ad.portfolio.et2'); 
 
 // les projets
 Route::get('/admin/show/projects', [ProjectsController::class,'index'])->name('ad.projects.show'); 
@@ -88,7 +88,6 @@ Route::get('/admin/add/projects', [ProjectsController::class,'create'])->name('a
 Route::post('/admin/add2/projects', [ProjectsController::class,'store'])->name('ad.projects.add2'); 
 
 Route::delete('/admin/destroy/projects/{id}', [ProjectsController::class, 'destroy'])->name('ad.projects.destroy');
-
 
 
 //contact 
